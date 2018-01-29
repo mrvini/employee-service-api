@@ -11,6 +11,13 @@ custom:
   dynamodb:
     start:
       migrate: true
+      seed: true
+
+    seed:
+      domain:
+        sources:
+          - table: 'employee-table-${self:provider.stage}'
+            sources: [./utils/dynamodb-data/employees.json]
 
 provider:
   name: aws
