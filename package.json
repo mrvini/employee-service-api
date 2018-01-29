@@ -1,0 +1,23 @@
+{
+  "name": "employee-service-api",
+  "version": "1.0.0",
+  "description": "Employee Service API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.188.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "serverless-http": "^1.5.3",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "serverless-dynamodb-local": "^0.2.27",
+    "serverless-offline": "^3.16.0"
+  }
+}
