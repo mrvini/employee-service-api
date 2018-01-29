@@ -26,8 +26,28 @@ sls install dynamodb
 sls offline start
 
 ```
+### Data Seed
+Data in DynamoDB is seeded for local development and located in ```utils/dynamodb-data/employees.json```
+Configuration for seed data is specified in ```serverless.yml``` under custom tag
 
-### Verify
+```
+custom:
+  tableName: 'employee-table-${self:provider.stage}'
+  dynamodb:
+    start:
+      migrate: true
+      seed: true
+
+    seed:
+      domain:
+        sources:
+          - table: 'employee-table-${self:provider.stage}'
+            sources: [./utils/dynamodb-data/employees.json]
+
+
+```
+
+### Verify Setup
 Once your service started in offline mode, verify it by navigating to the url in your browser ```http://localhost:3000```
 
 ### Resources
