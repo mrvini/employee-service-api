@@ -16,12 +16,13 @@ module.exports = class Employee extends Base {
         this.firstName = '';
         this.lastName = '';
         this.email = '';
-        this.dateOfBirth;
+        this.dateOfBirth = '';
         this.title = 'Unknown';
         this.gender = '';
-        this.employmentStartDate;
+        this.employmentStartDate = '';
         this.phone = '';
-        this.status; // pending, active, inactive
+        this.createdAt = '';
+        this.updatedAt = '';
     }
 
     /**
@@ -31,6 +32,7 @@ module.exports = class Employee extends Base {
      * @return {UserEntity} UserEntity itself
      */
     load (obj) {
+        console.log(obj);
       if (Object.keys(obj).length === 0) {
         return false
       }
@@ -44,18 +46,8 @@ module.exports = class Employee extends Base {
       this.employmentStartDate = this.vCheckDate(obj, 'employmentStartDate', '')
 
       this.phone = this.vCheckProperty(obj, 'phone')
-      this.status = this.vCheckProperty(obj, 'status')
       this.createdAt = this.vCheckDate(obj, 'createdAt', '')
       this.updatedAt = this.vCheckDate(obj, 'updatedAt', '')
       return this
-    }
-
-    /**
-     * @description getter for full name
-     * @method module:entity.Employee.fullName
-     * @return {string} full name of the employee
-     */
-    get fullName () {
-      return `${this.firstName} ${this.lastName}`
     }
 }

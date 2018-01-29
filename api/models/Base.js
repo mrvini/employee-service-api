@@ -55,7 +55,11 @@ module.exports = class Base {
       Object.getOwnPropertyNames(this).forEach(
           (key) => {
               if (this[key]) {
-                object[key] = this[key]
+                if (typeof this[key] === 'object' && this[key] instanceof Date) {
+                    object[key] = this[key].toLocaleString();
+                } else {
+                    object[key] = this[key]
+                }
               }
           },
           this

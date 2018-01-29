@@ -10,13 +10,15 @@ This serverless server will allow to manage employees
 Please follow https://serverless.com documentation to set up your envirnment.
 This project is configured to run in AWS
 
-## start
+## SETUP
+Checkout Repository and run
+
 ```bash
 #install dependencies
 npm install
 ```
 
-## Offline development
+### Offline DEVELOPMENT
 ```bash
 # install dynamodb locally
 sls install dynamodb
@@ -24,6 +26,14 @@ sls install dynamodb
 sls offline start
 
 ```
+
+### Verify
+Once your service started in offline mode, verify it by navigating to the url in your browser ```http://localhost:3000```
+
+### Resources
+Follow Serverless  User Guid to setup serverless: https://serverless.com/framework/docs/providers/aws/guide/installation/
+Setup AWS SDK as per: https://serverless.com/framework/docs/providers/aws/guide/credentials/
+DynamoDB references: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html
 
 ## TEST using Curl
 
@@ -52,3 +62,4 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/employe
 
 - Add Validation of the requests
 - Setup a Docker container for ease of testing
+- Add Repository, possibly DAO objects

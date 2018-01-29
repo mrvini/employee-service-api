@@ -48,9 +48,9 @@ module.exports = class EmployeeApplicationService {
         const employee = new Employee();
         const params = {
             TableName: EMPLOYEES_TABLE,
-            ProjectionExpression: Object.keys(employee).join(',')//"id, firstName, lastName, email, gender, dateOfBirth, title",
+            ProjectionExpression: Object.keys(employee).join(',')//"id, firstName, lastName, email, gender, dateOfBirth, title, createdAt, updatedAt",
         }
-
+        console.log(params);
         function scanHandler (error, result) {
             if (error) {
                 console.error("Unable to scan the table. Error JSON:", JSON.stringify(error, null, 2));
@@ -136,6 +136,7 @@ module.exports = class EmployeeApplicationService {
           TableName: EMPLOYEES_TABLE,
           Item: employee.transformToDynamoDBJson()
         };
+
         this.dynamoDbClient.put(params, (error) => {
           if (error) {
             console.log(error);
@@ -166,7 +167,6 @@ module.exports = class EmployeeApplicationService {
           TableName: EMPLOYEES_TABLE,
           Item: employee.transformToDynamoDBJson()
         };
-
         this.dynamoDbClient.put(params, (error, data) => {
           if (error) {
             console.log(error);
