@@ -50,7 +50,6 @@ module.exports = class EmployeeApplicationService {
             TableName: EMPLOYEES_TABLE,
             ProjectionExpression: Object.keys(employee).join(',')//"id, firstName, lastName, email, gender, dateOfBirth, title, createdAt, updatedAt",
         }
-        console.log(params);
         function scanHandler (error, result) {
             if (error) {
                 console.error("Unable to scan the table. Error JSON:", JSON.stringify(error, null, 2));
@@ -65,7 +64,6 @@ module.exports = class EmployeeApplicationService {
                         employees.push(item)
                     }
                 );
-                console.log(JSON.stringify(employees));
                 res.json(employees);
                 // continue scanning if we have more items
                 // if (typeof data.LastEvaluatedKey != "undefined") {
@@ -139,7 +137,6 @@ module.exports = class EmployeeApplicationService {
 
         this.dynamoDbClient.put(params, (error) => {
           if (error) {
-            console.log(error);
             res.status(400).json({ error: 'Could not create employee' });
           }
           res.json(employee);
@@ -169,7 +166,6 @@ module.exports = class EmployeeApplicationService {
         };
         this.dynamoDbClient.put(params, (error, data) => {
           if (error) {
-            console.log(error);
             res.status(400).json({ error: 'Could not update employee' });
           }
           res.json(employee);
@@ -198,7 +194,6 @@ module.exports = class EmployeeApplicationService {
 
         this.dynamoDbClient.delete(params, (error, data) => {
           if (error) {
-            console.log(error);
             res.status(400).json({ error: 'Could not remove employee' });
           }
           res.json({success:true});

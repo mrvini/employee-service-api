@@ -31,23 +31,22 @@ module.exports = class Employee extends Base {
      * @param  {object} obj js object
      * @return {UserEntity} UserEntity itself
      */
-    load (obj) {
-        console.log(obj);
-      if (Object.keys(obj).length === 0) {
-        return false
-      }
-      this.id = obj.id;
-      this.firstName = this.vCheckProperty(obj, 'firstName')
-      this.lastName = this.vCheckProperty(obj, 'lastName')
-      this.email = this.vCheckProperty(obj, 'email')
-      this.dateOfBirth = this.vCheckDate(obj, 'dateOfBirth', '')
-      this.title = this.vCheckProperty(obj, 'title', this.title)
-      this.gender = this.vCheckProperty(obj, 'gender', this.gender)
-      this.employmentStartDate = this.vCheckDate(obj, 'employmentStartDate', '')
+    load(obj) {
+        if (Object.keys(obj).length === 0) {
+            return false
+        }
+        this.id = obj.id;
+        this.firstName = this.vCheckProperty(obj, 'firstName')
+        this.lastName = this.vCheckProperty(obj, 'lastName')
+        this.email = this.vCheckProperty(obj, 'email')
+        this.dateOfBirth = this.vCheckDate(obj, 'dateOfBirth', '')
+        this.title = this.vCheckProperty(obj, 'title', this.title)
+        this.gender = this.vCheckProperty(obj, 'gender', this.gender)
+        this.employmentStartDate = this.vCheckDate(obj, 'employmentStartDate', '')
 
-      this.phone = this.vCheckProperty(obj, 'phone')
-      this.createdAt = this.vCheckDate(obj, 'createdAt', '')
-      this.updatedAt = this.vCheckDate(obj, 'updatedAt', '')
-      return this
+        this.phone = this.vCheckProperty(obj, 'phone')
+        this.createdAt = this.vCheckDate(obj, 'createdAt', '')
+        this.updatedAt = this.vCheckDate(obj, 'updatedAt', '')
+        return this
     }
 }
