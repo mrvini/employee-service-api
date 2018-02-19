@@ -7,7 +7,7 @@ This serverless server will allow to manage employees
 - delete
 - get all
 
-Please follow https://serverless.com documentation to set up your envirnment.
+Please follow https://serverless.com documentation to set up your environment.
 This project is configured to run in AWS
 
 ## SETUP

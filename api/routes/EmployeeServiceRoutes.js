@@ -6,7 +6,7 @@ module.exports = (app) => {
     app.route('/')
         .get(
             (req, res) => {
-                res.json('Welcome to Employee Service!')
+                res.json({message : 'Welcome to Employee Service!'})
             }
         );
 

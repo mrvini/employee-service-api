@@ -17,5 +17,4 @@ app.use(
     }
 );
 
-
 module.exports.handler = serverless(app);
